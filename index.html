@@ -90,25 +90,29 @@
 
     <!-- Script to Load External HTML -->
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
         // Dynamically load the Education section
-    document.addEventListener('DOMContentLoaded', function () {
         const educationPlaceholder = document.getElementById('education-placeholder');
         fetch('education.html')
-            .then(response => response.text())
-            .then(data => {
-                educationPlaceholder.innerHTML = data;
-            })
-            .catch(error => console.error('Error loading education:', error));
+        .then(response => response.text())
+        .then(data => {
+            educationPlaceholder.innerHTML = data;
+        })
+        .catch(error => console.error('Error loading education:', error));
+});
 
-        // Dynamically load the Skills section
-        const skillsPlaceholder = document.getElementById('skills-placeholder');
-        fetch('skills.html')
-            .then(response => response.text())
-            .then(data => {
-                skillsPlaceholder.innerHTML = data;
-            })
-            .catch(error => console.error('Error loading skills:', error));
-    });
+document.addEventListener('DOMContentLoaded', function () {
+    // Dynamically load the Skills section
+    const skillsPlaceholder = document.getElementById('skills-placeholder');
+    fetch('skills.html')
+        .then(response => response.text())
+        .then(data => {
+            skillsPlaceholder.innerHTML = data;
+        })
+        .catch(error => console.error('Error loading skills:', error));
+});
+
+    
         // Dynamically load the Professional Experience section
         document.addEventListener('DOMContentLoaded', function () {
             const placeholder = document.getElementById('experience-placeholder');
