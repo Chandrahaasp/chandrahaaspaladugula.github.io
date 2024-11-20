@@ -21,6 +21,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#experience">Experience</a>
                     </li>
                     <li class="nav-item">
@@ -55,6 +61,13 @@
         </div>
     </div>
 
+    <!-- Placeholder for Education Section -->
+    <div id="education-placeholder" data-aos="fade-left"></div>
+
+    <!-- Placeholder for Skills Section -->
+    <div id="skills-placeholder" data-aos="fade-down"></div>
+
+
     <!-- Placeholder for Professional Experience -->
     <div id="experience-placeholder" data-aos="fade-right"></div>
 
@@ -77,6 +90,25 @@
 
     <!-- Script to Load External HTML -->
     <script>
+        // Dynamically load the Education section
+    document.addEventListener('DOMContentLoaded', function () {
+        const educationPlaceholder = document.getElementById('education-placeholder');
+        fetch('education.html')
+            .then(response => response.text())
+            .then(data => {
+                educationPlaceholder.innerHTML = data;
+            })
+            .catch(error => console.error('Error loading education:', error));
+
+        // Dynamically load the Skills section
+        const skillsPlaceholder = document.getElementById('skills-placeholder');
+        fetch('skills.html')
+            .then(response => response.text())
+            .then(data => {
+                skillsPlaceholder.innerHTML = data;
+            })
+            .catch(error => console.error('Error loading skills:', error));
+    });
         // Dynamically load the Professional Experience section
         document.addEventListener('DOMContentLoaded', function () {
             const placeholder = document.getElementById('experience-placeholder');
@@ -87,6 +119,7 @@
                 })
                 .catch(error => console.error('Error loading experience:', error));
         });
+
     </script>
 
     <!-- AOS Initialization -->
