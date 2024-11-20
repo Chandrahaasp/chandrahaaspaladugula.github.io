@@ -57,7 +57,6 @@
                 </ul>
                 <a href="#contact">Hire me</a>
             </div>
-            
         </div>
     </div>
 
@@ -66,7 +65,6 @@
 
     <!-- Placeholder for Skills Section -->
     <div id="skills-placeholder" data-aos="fade-down"></div>
-
 
     <!-- Placeholder for Professional Experience -->
     <div id="experience-placeholder" data-aos="fade-right"></div>
@@ -91,39 +89,49 @@
     <!-- Script to Load External HTML -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-        // Dynamically load the Education section
-        const educationPlaceholder = document.getElementById('education-placeholder');
-        fetch('education.html')
-        .then(response => response.text())
-        .then(data => {
-            educationPlaceholder.innerHTML = data;
-        })
-        .catch(error => console.error('Error loading education:', error));
-});
+            // Dynamically load the Education section
+            const educationPlaceholder = document.getElementById('education-placeholder');
+            fetch('education.html')
+                .then(response => response.text())
+                .then(data => {
+                    educationPlaceholder.innerHTML = data;
+                    // Scroll to the education section after it's loaded
+                    if (window.location.hash === "#education") {
+                        educationPlaceholder.scrollIntoView({ behavior: 'smooth' });
+                    }
+                })
+                .catch(error => console.error('Error loading education:', error));
+        });
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Dynamically load the Skills section
-    const skillsPlaceholder = document.getElementById('skills-placeholder');
-    fetch('skills.html')
-        .then(response => response.text())
-        .then(data => {
-            skillsPlaceholder.innerHTML = data;
-        })
-        .catch(error => console.error('Error loading skills:', error));
-});
-
-    
-        // Dynamically load the Professional Experience section
         document.addEventListener('DOMContentLoaded', function () {
+            // Dynamically load the Skills section
+            const skillsPlaceholder = document.getElementById('skills-placeholder');
+            fetch('skills.html')
+                .then(response => response.text())
+                .then(data => {
+                    skillsPlaceholder.innerHTML = data;
+                    // Scroll to the skills section after it's loaded
+                    if (window.location.hash === "#skills") {
+                        skillsPlaceholder.scrollIntoView({ behavior: 'smooth' });
+                    }
+                })
+                .catch(error => console.error('Error loading skills:', error));
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Dynamically load the Professional Experience section
             const placeholder = document.getElementById('experience-placeholder');
             fetch('experience.html')
                 .then(response => response.text())
                 .then(data => {
                     placeholder.innerHTML = data;
+                    // Scroll to the experience section after it's loaded
+                    if (window.location.hash === "#experience") {
+                        placeholder.scrollIntoView({ behavior: 'smooth' });
+                    }
                 })
                 .catch(error => console.error('Error loading experience:', error));
         });
-
     </script>
 
     <!-- AOS Initialization -->
